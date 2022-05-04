@@ -1,0 +1,305 @@
+
+<div class="container">
+  
+    <div>
+        <h1 class="header">TCO Comparision Calculator</h1>
+        <h3 class="total">See how Total Cost of Ownership is lower with VMware server virtualisation and private cloud solutions compared to Microsoft</h3>
+    <hr color="black">
+    </div>
+    <div class="main-container">
+    <div class="left-container">    
+    <div class="row">
+      <form #TcoForm="ngForm" (ngSubmit)="submit(TcoForm.value)">
+      <div id="#1" class="text" >
+        <p class="text1">1.Are You...</p>
+      <div class="col-md-2">
+        <div (click)="onCreate()"class='bg-blue'>
+                <div><h2>Creating a new infrastructure?</h2>
+                <hr width="240px">
+                <h4>Customize your deployment</h4>
+                </div>
+        </div>
+    </div> 
+        <div class="col-md-2">
+          <div (click)="onCreate1()" class='bg-grey'>
+                  <div><h2 >Upgrading to vCloud Suite</h2>
+                    <hr width="240px" >
+                    <h4>Move upto private cloud</h4>
+                </div>
+              </div>
+        </div>
+       <hr class="size" >
+    
+       <br><br><br><br><br>
+       <br>
+       <br>
+       <br>
+        <h2 class="text1"  id="#2" >2.Currency</h2>
+        <select name="currency" class="search" #mySelect  (change)="onCurrency(mySelect.value)">
+            <option value="rupee">rupee</option>
+            <option value="dolar">dolar</option>
+            <option value="euro">euro</option>
+            <option value="Dinar">Dinar</option>
+          </select>
+        
+
+        <h2 class="text1"   id="#3">3. How many virtual machines do you want to deploy ?</h2>
+        <input class="vmnum" type="text"placeholder='Enter the number of VMs desired' [(ngModel)]="Virtual" name="value" >
+       
+        <h2 class="text1"  id="#4" >4. Which VMware product edition would you like to compare with Microsoft's solution? </h2><br>
+        <h4 class="solution">> Not sure what you want?</h4>
+        <div class="row">
+          <div class="column">
+            <h4>vSphere Essentials</h4>
+             <div class="cub" (click)="onProduct('vSphere Essentials')"></div><br>
+          </div>
+          <div class="column">
+            <h4>vSphere Essentials Plus</h4>
+            <div class="cub" (click)="onProduct('vSphere Essentials Plus')"></div><br>
+           
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <h4>vSphere Standard</h4>
+             <div class="cub" (click)="onProduct('vSphere Standard')"></div><br>
+            
+          </div>
+          <div class="column">
+            <h4>vSphere Enterprise plus</h4>
+            <div class="cub" (click)="onProduct('vSphere Enterprise plus')"></div><br>
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <h4>vCloud suite Standard</h4>
+             <div class="cub" (click)="onProduct('vCloud suite Standard')" ></div><br>
+           
+          </div>
+          <div class="column">
+            <h4>vCloud suite Advanced</h4>
+            <div class="cub" (click)="onProduct('vCloud suite Advanced')"></div><br>
+          
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <h4>vCloud suite Enterprise</h4>
+             <div class="cub" (click)="onProduct('vCloud suite Enterprise')"></div><br>
+            
+          </div>
+        </div>
+       
+        
+        </div>
+      
+      <div>
+        <div class="right-container">
+          <ul class="group">
+            <li class="list-group ">Chosen features</li>
+            <li class="list" >
+              <p class="font">1. Infrastructure deployment</p>
+              <hr class="border" />
+              <p class="points" >{{infrastructure}}</p>
+              <li class="list">
+               <p class="font" >2.Currency</p>
+               <hr class="border" />
+               <p class="points"  >{{Currency}}</p>
+               <li class="list">
+               <p class="font">3.Number of virtual machines</p>
+               <hr class="border" />
+               <p class="points" >{{Virtual}}</p>
+               <li class="list">
+                <p class="font">4.Product edition</p>
+                <hr class="border" />
+                <p class="points" >{{Product}}</p>
+                <li class="list">
+                <p class="font">5.Virtualization host type</p>
+                <hr class="border" />
+                <p class="points" >{{host}}</p>
+                <li class="list">
+                <p class="font">6.Storage type</p>
+                <hr class="border" />
+                <p class="points" >{{storage}}</p> 
+                <li class="list">
+                <p class="font">7. Infrastructure costs</p>
+                <hr class="border" />
+                <p class="points" >{{electricity}}</p>  
+                <li class="list">
+                <p class="font">8. Infrastructure costs data center</p>
+                <hr class="border" />
+                <p class="points" >{{datacenter}}</p>  
+                <li class="list">              
+                <p class="font">9.VM density</p>
+                <hr class="border" />
+                <p class="points" >{{slider}}</p>  
+                <li class="list">              
+                  <p class="font">10.density advantage</p>
+                  <hr class="border" />
+                  <p class="points" >{{slider1}}</p> 
+                <li class="list">
+                <p class="font">11.Time frame for comparison(years)</p>
+                <hr class="border" />
+                <p class="points" >{{range}}</p>    
+                               
+            </li>
+        </ul>
+        <button class="button">See Results</button> 
+        <p class="feilds">please input all feilds to continue</p> 
+       
+
+        </div>
+      </div>
+      <div> 
+       
+      
+       
+        <div> 
+        <h2 class="text1" id="#5">5.What virtualization host type would you like to use?</h2>
+        <h4 class="para">The virtualizaton hosts are the servers on which you will install the hypervisor and use to run your virtualized appicatons. The following virtualization hosts are available: </h4>
+        <div class="row">
+            <div class="column">
+              <h4>Server A</h4>
+               <div class="cub" (click)="onhost('Server A')"></div><br>
+              <h4>2 12-core CPUs,64GB RAM</h4>
+            </div>
+            <div class="column">
+              <h4>Server B</h4>
+              <div class="cub" (click)="onhost('Server B')"></div><br>
+              <h4>2 14-core CPUs,128GB RAM</h4>
+            </div>
+            <div class="column">
+              <h4>Server C</h4>
+              <div class="cub" (click)="onhost('Server C')"></div><br>
+              <h4>4 18-core CPUs,512GB RAM</h4>
+             </div> 
+        </div>
+        </div>
+    </div>
+        
+        
+          
+             
+      
+        <h2 class="text1" id="#6">6.What type of storage would like to employ?</h2>
+        <h4 class="para">select the type of storage that meets your business <br>needs.Storage options for virtual disks<br> on your virtual machines include the following:</h4>
+        <div class="row">
+            <div class="column">
+              <h4>NAS</h4>
+               <div class="cub" (click)="onstorage('NAS')"></div><br><br>
+               <p>Assumes storage cost of:</p>
+              <h4>$4.00/GB</h4>
+            </div>
+            <div class="column">
+              <h4>iSCSI SAN</h4>
+              <div class="cub" (click)="onstorage('iSCSI SAN')"></div><br><br>
+              <p>Assumes storage cost of:</p>
+              <h4>$5.00/GB</h4>
+            </div>
+            <div class="column">
+              <h4>FC SAN</h4>
+              <div class="cub" (click)="onstorage('FC SAN')"></div><br><br>
+              <p>Assumes storage cost of:</p>
+              <h4>$6.00/GB</h4>
+          </div>
+          <br>
+          <br><br>
+          <div class="srect">
+            <h4 class="Vmware">VMware vSan provides radically simple storage embeeded in vSphere and built on industry-standard server components for exceptional performance and low costs.</h4>
+          </div>
+        <h2 class="text1"  id="#7">7.Infrastructure costs-Electricity</h2>
+        <h4 class="para">Select the most reasonable estimate for electricity cots in the proposed data center location.</h4>
+        <div class="row">
+            <div class="column">
+              <h4>Low</h4>
+               <div class="cub" (click)="onelectricity('Low')"></div><br>
+              <h4>$0.070 per KWh</h4>
+            </div>
+            <div class="column">
+              <h4>Medium</h4>
+              <div class="cub" (click)="onelectricity('Medium')"></div><br>
+              <h4>$0.106 per KWh</h4>
+            </div>
+            <div class="column">
+              <h4>High</h4>
+              <div class="cub" (click)="onelectricity('High')"></div><br>
+              <h4>$0.150 per KWh</h4>
+            </div>
+          </div>
+          
+       
+
+
+
+       
+        <h2 class="text1" id="#8">8.Infrastructure costs-Data center real estate and build out</h2>
+        <h4 class="para">Select most reasonable estimate for real estate costs in the proposed data center location. Fully burdened data center real estate cost includes facility capital cost for construction, power and cooling equipment, and weighted depreciation.</h4>
+        <div class="row">
+            <div class="column">
+              <h4>Low</h4>
+               <div class="cub" (click)="ondatacenter('Low')"></div><br>
+              <h4>$147 per sq ft per year,fully burdened</h4>
+            </div>
+            <div class="column">
+              <h4>Medium</h4>
+              <div class="cub" (click)="ondatacenter('medium')"></div><br>
+              <h4>$290 per sq ft per year,fully burdened</h4>
+            </div>
+            <div class="column">
+              <h4>High</h4>
+              <div class="cub"(click)="ondatacenter('high')"></div><br>
+              <h4>$428 per sq  ft per year,fully burdened</h4>
+            </div>
+          </div>
+
+     
+        <h2 class="text1"  id="#9">9.What general VM density are you envisioning for your data center</h2>
+        <h4 class="para">The default value for VM density is set to six VMs per processor. Depending on your hardware setup and workload size, you can adjust the number of virtual machines running on each processor</h4>
+        <div class="box">
+            <div class="slider">
+                <input type="range" min="4" max="20" value="6" (change)=" onslider($event)">
+                <div class="triangle-up"></div>
+            </div>
+        
+        <h2 class="text1"id="#10">10.Additional VMware VMs per CPU</h2><div></div>
+        <h3 class="para">Additional VMware VMs per CPU</h3>
+        <div class="box">
+            <div class="slider">
+            
+              <input type="range" min="3" max="6" value="3" (change)=" onslider1($event)">
+            </div>
+            </div>
+          
+          <div class="drect">
+            <h4 class="Vmware1">VMware customer experience,analyst opinions,and independent studies confirm the VMware vSphere VM density advantage over Microsoft Hyper-V. This calculator assumes vSphere supports one additional VM per processor compared to Hyper-V,but you can increase that valuebased on your expectations.</h4>
+          </div>
+        </div>      
+        
+        <h2 class="text1" id="#11">11.Time Frame</h2>
+        <h4 class="para">Please select the number of years for the TCO evaluation</h4>
+        <div class="box">
+            <div class="slider">
+              <input type="range" min="3" max="6" value="3" (change)=" onrange($event)">
+                
+            </div>
+             
+      
+        
+</div>
+
+<a routerLinkActive="active" 
+routerLink="/success" class="submit" (click)="submit(TcoForm)">submit</a> 
+
+
+
+    
+</div>
+      </form>
+
+
+
+        
+   
+        
+        

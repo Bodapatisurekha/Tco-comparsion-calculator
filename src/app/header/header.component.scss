@@ -1,0 +1,63 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+.logo{
+    top: 3px;
+    height: 20px;
+    padding-top: 5px;
+    display: inline-block;
+}
+
+
+.Title{
+    color: white;
+    height: 10px;
+    display: inline-block;
+    padding-left: 5px;
+}
+
+.search{
+    background-color:grey;
+    color: white;
+    height: 28px;
+}
+
+::placeholder {
+    color: white;
+    padding: 8px 0px 0px 8px;
+    opacity: 1; /* Firefox */
+    font-size: 14px;
+  }
+  
+.vr{
+    color: grey !important;
+}
+
+.nav1{
+    background-color: black;
+    padding: 15px;
+    border-bottom: 1px solid grey;
+    
+}
+
+.nav1 ul{
+    float:right;
+    list-style-type: none;
+    text-align: center;
+    margin: -1px;
+}
+
+.nav1 ul li{
+    display: inline-block;
+    padding: 10px 5px 0px 0px;
+}
+
+.nav1 li a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+

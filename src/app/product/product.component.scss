@@ -1,0 +1,30 @@
+.Title2{
+    color: white;
+    font-size: 24px;
+    display: block ;
+    padding-left: 15px;
+}
+.nav2{
+    background-color:black;
+    padding: 10px;
+
+}
+.nav2 ul{
+    float:right;
+    list-style-type: none;
+    text-align: center;
+    margin-top: -50px;
+}
+
+.nav2 ul li{
+    display: inline-block;
+    padding: 0px 20px 0px 0px;
+    font-size:x-large;
+}
+.nav2 li a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;  
+}
+
